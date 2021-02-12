@@ -11,7 +11,7 @@ import Validator from './Validator'
 
 export default function FormField(props){
     return (
-        <>
+        <View>
             <Text style={styles.title}>{props.title}</Text>
             <View style={styles.inputContainer}>
                 <TextInput 
@@ -21,7 +21,7 @@ export default function FormField(props){
                 />
                 <Validator valid={props.valid} />
             </View>
-        </>
+        </View>
     )
 }
 

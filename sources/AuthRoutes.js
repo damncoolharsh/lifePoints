@@ -1,5 +1,5 @@
 import React from 'react'
-import {View} from 'react-native'
+import {StatusBar} from 'react-native'
 import {NavigationContainer} from '@react-navigation/native'
 import {createStackNavigator} from '@react-navigation/stack'
 import {
@@ -15,6 +15,7 @@ const AuthStack = createStackNavigator()
 export default function AuthRoutes(){
     return (
         <NavigationContainer>
+            <StatusBar backgroundColor="#00001F" />
             <AuthStack.Navigator>
                 <AuthStack.Screen 
                     name="LogIn" 

@@ -6,5 +6,6 @@ import Validator from './Validator'
 export {
     FormField,
     Spacing,
-    StyledButton
+    StyledButton,
+    Validator
 }

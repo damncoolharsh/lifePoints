@@ -20,7 +20,7 @@ export default function LogIn({navigation}){
         navigation.push('SignUp')
     }
 
-    const login = ()=>{
+    const loginUser = ()=>{
 
     }
 
@@ -66,9 +66,7 @@ export default function LogIn({navigation}){
                         style={styles.text} 
                         onPress={createNewAccount}> Create One</Text>
                 </Text>
-                <StyledButton
-                    onPress={login}
-                >Log In</StyledButton>
+                <StyledButton onPress={loginUser}>Log In</StyledButton>
             </View>
         </View>
     )

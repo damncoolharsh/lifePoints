@@ -3,42 +3,186 @@ import {
     View,
     StyleSheet,
     Image,
-    Text
+    Text,
+    ScrollView,
+    TouchableOpacity
 } from 'react-native'
-import Validator from '../../components/Validator'
+import {
+    Validator,
+    FormField,
+    StyledButton,
+    Spacing
+} from '../../components/index'
 
-export default function SignUp(){
+export default function SignUp({navigation}){
     const [selectedGender, setSelectedGender] = useState(null)
+    const [userInfo, setUserInfo] = useState({
+        username: "",
+        email: "",
+        password: "",
+        retype: ""
+    })
+
+    const loginWindow = ()=>{
+        navigation.pop()
+    }
+
+    const createNewAccount = ()=>{
+        if(userInfo.username != "" && userInfo.email != "" && userInfo.password != "" ){
+            navigation.push("Verification", {email: userInfo.email})
+        }
+    }
     return (
-        <View style={{backgroundColor: '#00001F', flex: 1, paddingHorizontal: 40}}>
-            <View style={{alignItems: 'center', marginTop: 20}}>
-                <Text style={{color: 'white'}}>Profile Picture</Text>
-                <View style={{height: 100, width: 100, borderWidth: 2, borderColor: '#24244B', borderRadius: 50, marginVertical: 10, alignItems: 'center', justifyContent: 'center'}}>
+        <ScrollView style={styles.container}>
+            <View style={styles.profilePicture}>
+                <Text style={styles.text}>Profile Picture</Text>
+                <View style={styles.uploadPhoto}>
                     <Image source={require('../../assets/camera.png')} style={{width: 25, height: 19.5}}/>
                 </View>
             </View>
 
-            <View style={{flexDirection: 'row', justifyContent: 'flex-end', width: '100%',}}>
-                <View style={{width: '90%'}}>
-                    <Text style={{color: 'white'}}>Gender</Text>
-                    <View style={{flexDirection: 'row', marginTop: 5, width: '100%', justifyContent: 'space-between', alignItems: 'center'}}>
-                        <View style={{width: 50, height: 50, borderRadius: 25, backgroundColor: 'blue'}}>
-
+            <View style={styles.genderContainer}>
+                <View>
+                    <Text style={styles.title}>GENDER</Text>
+                    <View style={styles.genderOptions}>
+                        <View style={{alignItems: 'center'}}>
+                            <TouchableOpacity
+                                onPress={()=>{setSelectedGender(0)}}
+                                style={{...styles.genderOption, backgroundColor: selectedGender === 0 ? '#116AD8' : '#171732'}}>
+                                {selectedGender == 0
+                                ? <Image style={styles.icon} source={require('../../assets/maleUserSelected.png')} />
+                                : <Image style={styles.icon} source={require('../../assets/maleUser.png')}/>}
+                            </TouchableOpacity>
+                            <Text style={styles.text}>Male</Text>
                         </View>
 
-                        <View style={{width: 50, height: 50, borderRadius: 25, backgroundColor: '#171732'}}>
-
+                        <View style={{alignItems: 'center'}}>
+                            <TouchableOpacity 
+                                onPress={()=>{setSelectedGender(1)}}
+                                style={{...styles.genderOption, backgroundColor: selectedGender === 1 ? '#116AD8' : '#171732'}}>
+                                {selectedGender == 1
+                                ? <Image style={styles.icon} source={require('../../assets/femaleUserSelected.png')} />
+                                : <Image style={styles.icon} source={require('../../assets/femaleUser.png')}/>}
+                            </TouchableOpacity>
+                            <Text style={styles.text}>Female</Text>
                         </View>
 
-                        <View style={{width: 50, height: 50, borderRadius: 25, backgroundColor: '#171732'}}>
-
+                        <View style={{alignItems: 'center'}}>
+                            <TouchableOpacity 
+                                onPress={()=>{setSelectedGender(2)}}
+                                style={{...styles.genderOption, backgroundColor: selectedGender === 2 ? '#116AD8' : '#171732'}}>
+                                {selectedGender == 2
+                                ? <Image style={styles.icon} source={require('../../assets/maleUserSelected.png')} />
+                                : <Image style={styles.icon} source={require('../../assets/maleUser.png')}/>}
+                            </TouchableOpacity>
+                            <Text style={styles.text}>Other</Text>
                         </View>
 
-                        <Validator valid={true} />
+                        <Validator valid={selectedGender == null ? false : true} />
                     </View>
                 </View>
+
             </View>
             
-        </View>
+            <View style={{height: 250, justifyContent: 'space-between', marginVertical: 28}}>
+                <FormField 
+                    title="USERNAME"
+                    onTextChange={(text)=>{setUserInfo({...userInfo, username: text})}}
+                    value={userInfo.username}
+                    valid={userInfo.username != ""}
+                />
+                
+                <FormField 
+                    title="EMAIL"
+                    onTextChange={(text)=>{setUserInfo({...userInfo, email: text})}}
+                    value={userInfo.email}
+                    valid={userInfo.email != ""}
+                />
+
+                <FormField 
+                    title="PASSWORD"
+                    onTextChange={(text)=>{setUserInfo({...userInfo, password: text})}}
+                    value={userInfo.password}
+                    valid={userInfo.password != ""}
+                />
+
+                <FormField 
+                    title="RETYPE PASSWORD"
+                    onTextChange={(text)=>{setUserInfo({...userInfo, retype: text})}}
+                    value={userInfo.retype}
+                    valid={userInfo.retype != "" && userInfo.retype == userInfo.password}
+                />
+            </View>
+
+            <StyledButton onPress={createNewAccount}>Create New Account</StyledButton>
+            
+            <View style={styles.footer}>
+                <Text style={{color: 'white'}}>
+                    Have an account? 
+                    <Text
+                        style={{color: 'white'}} 
+                        onPress={loginWindow}> Login</Text>
+                </Text>
+            </View>
+        </ScrollView>
     )
 }
+
+const styles = StyleSheet.create({
+    container: {
+        backgroundColor: '#00001F', 
+        flex: 1, 
+        paddingHorizontal: 40
+    },
+    profilePicture: {
+        alignItems: 'center', 
+        marginTop: 14
+    },
+    title: {
+        color: '#A7A7A7',
+        fontSize: 12
+    },
+    text: {
+        color: '#A7A7A7',
+        fontSize: 11
+    },
+    uploadPhoto: {
+        height: 100, 
+        width: 100, 
+        borderWidth: 2, 
+        borderColor: '#24244B', 
+        borderRadius: 50, 
+        marginVertical: 10, 
+        alignItems: 'center', 
+        justifyContent: 'center'
+    },
+    genderContainer: {
+        flexDirection: 'row', 
+        justifyContent: 'flex-end', 
+        width: '100%',
+        marginTop: 14
+    },
+    genderOptions: {
+        flexDirection: 'row', 
+        marginTop: 12,
+        width: 260,
+        justifyContent: 'space-between', 
+        alignItems: 'center',
+    },
+    genderOption: {
+        width: 40, 
+        height: 40,
+        borderRadius: 20, 
+        alignItems: 'center', 
+        justifyContent: 'center',
+        marginBottom: 8
+    },
+    icon: {
+        width: 20,
+        height: 25,
+    },
+    footer: {
+        // marginTop: 20,
+        alignItems: 'center'
+    },
+})
