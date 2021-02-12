@@ -18,6 +18,7 @@ export default function FormField(props){
                     style={styles.inputField}
                     onChangeText={props.onTextChange}
                     value={props.value}
+                    secureTextEntry={props.secure}
                 />
                 <Validator valid={props.valid} />
             </View>
@@ -34,7 +35,9 @@ const styles = StyleSheet.create({
     inputField: {
         color: 'white',
         flex: 1,
+        letterSpacing: 2,
         padding: 0,
+        paddingBottom: 8,
         ...Typography.font('300')
     },
     inputContainer: {

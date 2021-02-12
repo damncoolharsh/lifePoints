@@ -47,7 +47,7 @@ export default function Verification({navigation, route}){
                 <Text style={{fontSize: 26, color: 'white'}}>Verification</Text>
             </View>
             <View >
-                <Text style={styles.text}>We have sent you a verification code to your email ID {route.params.email}</Text>
+                <Text style={styles.infoText}>We have sent you a verification code to your email ID {route.params.email}</Text>
             </View>
 
             <View style={styles.pinsContainer}>
@@ -120,11 +120,11 @@ export default function Verification({navigation, route}){
                 <Text style={styles.text}>Didn't get code? Tap to resend</Text>
             </View>
 
-            <StyledButton onPress={loginWindow}>Verify</StyledButton>
+            <StyledButton onPress={loginWindow}>VERIFY</StyledButton>
 
             <View style={{alignItems: 'center', marginBottom: '20%'}}>
             <Text style={{color: 'white'}}>
-                    Have an account? 1
+                    Have an account? 
                     <Text
                         style={{color: 'white'}} 
                         onPress={loginWindow}> Login</Text>
@@ -161,7 +161,7 @@ const styles = StyleSheet.create({
         height: 21,
         marginRight: 20
     },
-    text: {
+    infoText: {
         color: '#DFDFDF',
         fontSize: 11
     },

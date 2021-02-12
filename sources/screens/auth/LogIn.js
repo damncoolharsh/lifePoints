@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import {
     View,
     StyleSheet,
@@ -8,9 +8,10 @@ import {
     TouchableOpacity
 } from 'react-native'
 import {FormField, Spacing, StyledButton} from '../../components/index'
-import { Typography } from '../../constents'
+import {AuthContext} from '../../Provider'
 
 export default function LogIn({navigation}){
+    const {setUser} = useContext(AuthContext)
     const [userInfo, setUserInfo] = useState({
         email: "",
         password: ""
@@ -21,7 +22,9 @@ export default function LogIn({navigation}){
     }
 
     const loginUser = ()=>{
-
+        if(userInfo.email != "" && userInfo.password != ""){
+            setUser(userInfo.email)
+        }
     }
 
     return (
@@ -45,6 +48,7 @@ export default function LogIn({navigation}){
                 <Spacing value={20} />
                 <FormField 
                     title="PASSWORD" 
+                    secure={true}
                     valid={userInfo.password != ""}
                     onTextChange={(text)=>{
                         setUserInfo({
@@ -56,7 +60,9 @@ export default function LogIn({navigation}){
                 />
                 <Spacing value={10} />
                 <Text 
-                    onPress={()=>{console.log("clicked")}}
+                    onPress={()=>{
+                        navigation.push("ForgetPassword")
+                    }}
                     style={styles.forgetPassword}>Forget Password?</Text>
             </View>
             <View style={styles.footer}>

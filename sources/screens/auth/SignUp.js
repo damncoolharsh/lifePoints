@@ -84,7 +84,7 @@ export default function SignUp({navigation}){
 
             </View>
             
-            <View style={{height: 250, justifyContent: 'space-between', marginVertical: 28}}>
+            <View style={{height: 260, justifyContent: 'space-between', marginVertical: 28}}>
                 <FormField 
                     title="USERNAME"
                     onTextChange={(text)=>{setUserInfo({...userInfo, username: text})}}
@@ -101,6 +101,7 @@ export default function SignUp({navigation}){
 
                 <FormField 
                     title="PASSWORD"
+                    secure={true}
                     onTextChange={(text)=>{setUserInfo({...userInfo, password: text})}}
                     value={userInfo.password}
                     valid={userInfo.password != ""}
@@ -108,6 +109,7 @@ export default function SignUp({navigation}){
 
                 <FormField 
                     title="RETYPE PASSWORD"
+                    secure={true}
                     onTextChange={(text)=>{setUserInfo({...userInfo, retype: text})}}
                     value={userInfo.retype}
                     valid={userInfo.retype != "" && userInfo.retype == userInfo.password}
@@ -136,7 +138,7 @@ const styles = StyleSheet.create({
     },
     profilePicture: {
         alignItems: 'center', 
-        marginTop: 14
+        marginTop: 20
     },
     title: {
         color: '#A7A7A7',
@@ -158,14 +160,13 @@ const styles = StyleSheet.create({
     },
     genderContainer: {
         flexDirection: 'row', 
-        justifyContent: 'flex-end', 
-        width: '100%',
+        justifyContent: 'flex-end',
         marginTop: 14
     },
     genderOptions: {
         flexDirection: 'row', 
+        width: 250,
         marginTop: 12,
-        width: 260,
         justifyContent: 'space-between', 
         alignItems: 'center',
     },

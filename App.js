@@ -5,6 +5,7 @@ import AuthRoutes from './sources/AuthRoutes'
 
 export default function App(){
   const {user} = useContext(AuthContext)
+  console.log(user)
   return (
     user
     ? <Routes />
