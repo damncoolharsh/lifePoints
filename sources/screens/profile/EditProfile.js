@@ -13,11 +13,11 @@ export default function EditProfile({navigation}) {
         <ScrollView style={styles.container}>
             <View style={styles.header}>
                 <TouchableOpacity onPress={goBack}>
-                    <Image source={require('../../assets/invalid.png')} style={{width: 20, height: 20}}/>
+                    <Image source={require('../../assets/invalid.png')} style={{width: 14, height: 14}}/>
                 </TouchableOpacity>
                 <Text style={{color: 'white', marginLeft: 20, flex: 1}}>EDIT PROFILE</Text>
                 <TouchableOpacity onPress={goBack}>
-                    <Image source={require('../../assets/valid.png')} style={{width: 20, height: 20}}/>
+                    <Image source={require('../../assets/valid.png')} style={{width: 18, height: 18}}/>
                 </TouchableOpacity>
             </View>
 

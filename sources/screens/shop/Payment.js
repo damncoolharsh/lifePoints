@@ -4,6 +4,7 @@ import {
     UserForm,
     StyledButton
 } from '../../components/index'
+import { Typography } from '../../constents'
 
 export default function Payment({navigation}) {
     return (
@@ -19,7 +20,7 @@ export default function Payment({navigation}) {
                         <Text style={[styles.text, {fontSize: 10}]}>POINTS</Text>
                     </View>
                 </View>
-                <ScrollView>
+                <ScrollView style={{paddingHorizontal: 20}}>
                     <UserForm exclude={true}/>
                     <StyledButton onPress={()=>{navigation.push("Success")}}>BUY NOW</StyledButton>
                 </ScrollView>
@@ -33,12 +34,11 @@ const styles = StyleSheet.create({
         backgroundColor: '#121D23',
         flex: 1,
         paddingHorizontal: 30,
-        paddingTop: 14
     },
     body: {
         backgroundColor: '#171732',
-        borderWidth: 2,
         flex: 1,
+        borderBottomRightRadius: 30
         // borderColor: 'white'
     },
     header: {
@@ -47,10 +47,11 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'space-between',
         alignItems: 'center',
-        borderTopLeftRadius: 20,
+        borderTopLeftRadius: 30,
         padding: 24
     },
     text: {
-        color: 'white'
+        color: 'white',
+        ...Typography.font('500')
     }
 })

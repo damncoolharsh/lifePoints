@@ -29,7 +29,7 @@ export default function NotificationDialog({visible, onDismiss}) {
             contentStyle={styles.dialog}
         >
             <TouchableOpacity style={styles.cencel} onPress={onDismiss}>
-                <Image source={require('../assets/invalid.png')} style={{width: 20, height: 20}}/>
+                <Image source={require('../assets/invalid.png')} style={{width: 14, height: 14}}/>
             </TouchableOpacity>
             <ScrollView>
                 {data.map((item, index)=>(

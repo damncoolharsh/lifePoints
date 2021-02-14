@@ -8,6 +8,7 @@ import {
     TouchableOpacity
 } from 'react-native'
 import {FormField, Spacing, StyledButton} from '../../components/index'
+import { Typography } from '../../constents'
 import {AuthContext} from '../../Provider'
 
 export default function LogIn({navigation}){
@@ -102,6 +103,7 @@ const styles = StyleSheet.create({
         flexDirection: 'column-reverse'
     },
     text: {
-        color: 'white'
+        color: 'white',
+        ...Typography.font('500')
     }
 })

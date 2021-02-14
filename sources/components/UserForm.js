@@ -83,7 +83,7 @@ const styles = StyleSheet.create({
         marginVertical: 18,
         borderBottomWidth: 2, 
         borderBottomColor: '#2B2B67', 
-        width: '42%',
+        width: '40%',
         marginHorizontal: 16
     },
     formText: {

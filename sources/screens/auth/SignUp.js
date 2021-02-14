@@ -13,6 +13,7 @@ import {
     StyledButton,
     Spacing
 } from '../../components/index'
+import { Typography } from '../../constents'
 
 export default function SignUp({navigation}){
     const [selectedGender, setSelectedGender] = useState(null)
@@ -77,11 +78,9 @@ export default function SignUp({navigation}){
                             </TouchableOpacity>
                             <Text style={styles.text}>Other</Text>
                         </View>
-
                         <Validator valid={selectedGender == null ? false : true} />
                     </View>
                 </View>
-
             </View>
             
             <View style={{height: 260, justifyContent: 'space-between', marginVertical: 28}}>
@@ -119,7 +118,7 @@ export default function SignUp({navigation}){
             <StyledButton onPress={createNewAccount}>Create New Account</StyledButton>
             
             <View style={styles.footer} onPress={loginWindow}>
-                <Text style={{color: 'white'}}>
+                <Text style={{color: 'white'}} onPress={loginWindow}>
                     Have an account?  Login
                 </Text>
             </View>
@@ -139,6 +138,7 @@ const styles = StyleSheet.create({
     },
     title: {
         color: '#A7A7A7',
+        ...Typography.font('500'),
         fontSize: 12
     },
     text: {

@@ -10,6 +10,7 @@ import {
     ScrollView
 } from 'react-native'
 import { FormField, StyledButton } from '../../components'
+import { Typography } from '../../constents'
 
 export default function ForgetPassword({navigation, route}){
     const [email, setEmail] = useState("")
@@ -106,5 +107,6 @@ const styles = StyleSheet.create({
     },
     text: {
         color: 'white',
+        ...Typography.font('500')
     }
 })

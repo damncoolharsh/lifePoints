@@ -85,14 +85,14 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'space-between',
         alignItems: 'center',
-        paddingBottom: 40
+        paddingBottom: 50
     },
     rankItem: {
         flexDirection: 'row',
         justifyContent: 'space-between',
         alignItems: 'center',
-        paddingBottom: 24,
-        marginBottom: 24,
+        paddingBottom: 30,
+        marginBottom: 30,
         borderBottomWidth: 2,
         borderBottomColor: '#28285B'
     },

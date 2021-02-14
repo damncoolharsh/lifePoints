@@ -28,9 +28,9 @@ const styles = StyleSheet.create({
         fontSize: 12,
         ...Typography.font('500')
     },
-   
+
     inputContainer: {
-        borderBottomColor: '#181835',
+        borderBottomColor: '#2D2D76',
         borderBottomWidth: 2,
         flexDirection: 'row',
         alignItems: 'center'

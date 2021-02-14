@@ -45,7 +45,7 @@ export default function News({navigation}) {
                 horizontal
                 style={styles.carousel}
                 snapToInterval={ITEM_WIDTH}
-                decelerationRate={0}
+                decelerationRate='fast'
                 bounces={false}
                 onScroll={new Animated.event(
                     [{nativeEvent: {contentOffset: {x: scrollX}}}],

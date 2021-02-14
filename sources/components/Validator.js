@@ -17,7 +17,7 @@ export default function Validator(props) {
 
 const styles = StyleSheet.create({
     size: {
-        width: 18,
-        height: 18
+        width: 16,
+        height: 16
     }
 })

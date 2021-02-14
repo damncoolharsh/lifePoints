@@ -7,9 +7,11 @@ import {
     Text,
     TouchableOpacity,
     TextInput,
-    StatusBar
+    StatusBar,
+    ScrollView
 } from 'react-native'
 import { StyledButton } from '../../components'
+import { Typography } from '../../constents'
 
 export default function Verification({navigation, route}){
 
@@ -34,7 +36,7 @@ export default function Verification({navigation, route}){
         StackActions.pop
     }
     return (
-        <View style={styles.container}>
+        <ScrollView style={styles.container}>
             <View style={styles.header}>
                 <Image 
                 source={require('../../assets/logo.png')}
@@ -127,7 +129,7 @@ export default function Verification({navigation, route}){
                     Have an account?  Login
                 </Text>
             </View>
-        </View>
+        </ScrollView>
     )
 }
 
@@ -179,6 +181,6 @@ const styles = StyleSheet.create({
     },
     text: {
         color: 'white',
-
+        ...Typography.font('500')
     }
 })

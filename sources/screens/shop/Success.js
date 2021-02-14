@@ -36,7 +36,8 @@ const styles = StyleSheet.create({
         flex: 1,
         paddingHorizontal: 20,
         borderTopLeftRadius: 20,
-        borderBottomRightRadius: 20
+        borderTopLeftRadius: 30,
+        borderBottomRightRadius: 30
     },
     header: {
         alignItems: 'center',
@@ -52,6 +53,5 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'space-between',
         alignItems: 'center',
-        borderTopLeftRadius: 20,
     }
 })

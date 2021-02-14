@@ -45,8 +45,7 @@ export default function Shop({navigation}) {
                 contentContainerStyle={{
                     flexDirection: 'row',
                     flexWrap: 'wrap',
-                }}
-            >
+                }}>
                 <View style={[styles.col]}>
                     {colA.map((item, index)=>(
                         <TouchableOpacity 
@@ -56,8 +55,8 @@ export default function Shop({navigation}) {
                             <View style={[styles.header, {flexDirection: index%2===0 ? 'row' : 'row-reverse'}]}>
                                 <Image source={item.logo} style={{height: 30, width: 25, alignItems: 'flex-start'}} resizeMode='contain'/>
                                 <View style={styles.points}>
-                                    <Text style={{color: 'white', fontSize: 9, fontWeight: 'bold'}}>{item.points}</Text>
-                                    <Text style={{color: 'white', fontSize: 6}}>POINTS</Text>
+                                    <Text style={{color: 'white', fontSize: 10, fontWeight: 'bold'}}>{item.points}</Text>
+                                    <Text style={{color: 'white', fontSize: 7}}>POINTS</Text>
                                 </View>
                             </View>
                             <View style={{width: 100, height: 100, marginLeft: 20}}>
@@ -80,8 +79,8 @@ export default function Shop({navigation}) {
                                     <Text style={{color: 'white', fontSize: 8}}>POINTS</Text>
                                 </View>
                             </View>
-                            <View style={{width: 100, height: 100, marginLeft: 20, marginTop: 30}} resizeMode='contain' >
-                                <Image source={item.backgroundImage} style={{ width: '100%', height: '100%',}} />
+                            <View style={{width: 100, height: 100, marginLeft: 20, marginTop: 30}} >
+                                <Image source={item.backgroundImage} style={{ width: '100%', height: '100%'}} resizeMode='contain'/>
                             </View>
                         </TouchableOpacity>
                     ))}
@@ -95,13 +94,14 @@ const styles = StyleSheet.create({
     container: {
         backgroundColor: '#121D23',
         flex: 1,
-        paddingHorizontal: 30,
+        paddingHorizontal: 20,
         paddingTop: 14
     },
     title: {
         color: 'white',
         fontSize: 14,
-        marginBottom: 22
+        marginBottom: 22,
+        marginLeft: 10
     },
     col: {
         flex: 1,

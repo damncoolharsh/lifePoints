@@ -10,6 +10,7 @@ import {
     ScrollView
 } from 'react-native'
 import { FormField, Spacing, StyledButton } from '../../components'
+import { Typography } from '../../constents'
 
 export default function Verification({navigation, route}){
     const [enteredPassword, setEnteredPassword] = useState({
@@ -124,5 +125,6 @@ const styles = StyleSheet.create({
     },
     text: {
         color: 'white',
+        ...Typography.font('500')
     }
 })

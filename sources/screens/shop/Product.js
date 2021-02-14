@@ -48,8 +48,7 @@ const styles = StyleSheet.create({
     product: {
         position: 'relative',
         marginTop: 30,
-        flex: 1,
-        borderBottomRightRadius: 30
+        flex: 1
     },
     productImage: {
         borderTopLeftRadius: 30,
@@ -82,6 +81,7 @@ const styles = StyleSheet.create({
         elevation: 5,
         borderColor: 'white',
         paddingHorizontal: 20, 
+        borderBottomRightRadius: 30,
         backgroundColor: '#171732'
     }
 })
