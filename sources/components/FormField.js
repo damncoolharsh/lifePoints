@@ -7,6 +7,7 @@ import {
     StyleSheet
 } from 'react-native'
 import {Typography} from '../constents/index'
+import InputField from './InputField'
 import Validator from './Validator'
 
 export default function FormField(props){
@@ -14,12 +15,7 @@ export default function FormField(props){
         <View>
             <Text style={styles.title}>{props.title}</Text>
             <View style={styles.inputContainer}>
-                <TextInput 
-                    style={styles.inputField}
-                    onChangeText={props.onTextChange}
-                    value={props.value}
-                    secureTextEntry={props.secure}
-                />
+                <InputField {...props} />
                 <Validator valid={props.valid} />
             </View>
         </View>
@@ -32,14 +28,7 @@ const styles = StyleSheet.create({
         fontSize: 12,
         ...Typography.font('500')
     },
-    inputField: {
-        color: 'white',
-        flex: 1,
-        letterSpacing: 2,
-        padding: 0,
-        paddingBottom: 8,
-        ...Typography.font('300')
-    },
+   
     inputContainer: {
         borderBottomColor: '#181835',
         borderBottomWidth: 2,

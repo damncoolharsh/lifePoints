@@ -72,11 +72,8 @@ export default function Verification({navigation, route}){
             <StyledButton onPress={loginWindow}>RESET PASSWORD</StyledButton>
 
             <View style={{alignItems: 'center', marginBottom: '20%'}}>
-            <Text style={{color: 'white'}}>
-                    Have an account? 
-                    <Text
-                        style={{color: 'white'}} 
-                        onPress={loginWindow}> Login</Text>
+                <Text style={{color: 'white'}} onPress={loginWindow}>
+                    Have an account? Login
                 </Text>
             </View>
         </ScrollView>

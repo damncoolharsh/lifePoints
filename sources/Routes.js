@@ -1,18 +1,22 @@
-import React from 'react'
-import {View, Image, StatusBar, StyleSheet, Text} from 'react-native'
+import React, { useContext, useState } from 'react'
+import {StatusBar, StyleSheet, Text} from 'react-native'
 import {NavigationContainer} from '@react-navigation/native'
 import {createStackNavigator} from '@react-navigation/stack'
 import TabsScreen from './screens/TabsScreen'
 import NewsWindow from './screens/news/NewsWindow'
-import ProgressCircle from 'react-native-progress-circle'
 import {
     Profile,
     EditProfile
 } from './screens/profile'
+import {
+    Header
+} from './components/index'
+import {AuthContext} from './Provider'
 
 const Stack = createStackNavigator()
 
 export default function Routes(){
+    const {setUser} = useContext(AuthContext)
     return (
         <NavigationContainer>
             <StatusBar backgroundColor="#00001F" />
@@ -21,32 +25,8 @@ export default function Routes(){
                     name="Tabs" 
                     component={TabsScreen}
                     options={{
-                        header: ()=>
-                            <View style={styles.header}>
-                                <Image source={require('./assets/header.png')} style={StyleSheet.absoluteFill} />
-                                <View style={{flexDirection: 'row', alignItems: 'center'}}>
-                                    <Image source={require('./assets/profile.png')} style={styles.profile}/>
-                                    <Text style={{marginLeft: 15, fontSize: 14, color: 'white'}}>DavidW</Text>
-                                </View>
-                                <View style={{flexDirection: 'row', alignItems: 'center'}}>
-                                    <View style={{alignItems: 'center'}}>
-                                        <Text style={{color: 'white', fontSize: 10, marginBottom: 5}}>Points</Text>
-                                        <Text style={{fontSize: 22, color: 'white'}}>40</Text>
-                                    </View>
-                                    <View style={{marginHorizontal: 15}}>
-                                        <ProgressCircle
-                                            radius={30}
-                                            color="#36C7FF"
-                                            percent={40}
-                                            borderWidth={4}
-                                            bgColor="#423A8C"
-                                            shadowColor="#181835"
-                                        >
-                                            <Image source={require('./assets/image.png')} style={{width: 30, height: 30}}/>
-                                        </ProgressCircle>
-                                    </View>
-                                </View>
-                            </View>,
+                        header: ({navigation})=>
+                            <Header navigation={navigation}/>,
                     }}
                 />
                 <Stack.Screen
@@ -60,7 +40,12 @@ export default function Routes(){
                     name="Profile"
                     component={Profile}
                     options={{
-                        headerShown: false
+                        headerRight: ()=>(
+                            <Text 
+                                style={{ color: 'white', marginRight: 20}}
+                                onPress={()=>{setUser(null)}}>LOG OUT</Text>
+                        ),
+                        ...profileHeaderStyle
                     }}
                 />
                 <Stack.Screen 
@@ -75,17 +60,14 @@ export default function Routes(){
     )
 }
 
-const styles = StyleSheet.create({
-    header: {
-        flexDirection: 'row',
-        alignItems: 'center',
-        height: 100,
-        justifyContent: 'space-between'
+const profileHeaderStyle = {
+    title: 'PROFILE',
+    headerTintColor: 'white',
+    headerTitleStyle: {
+        fontSize: 16,
+        fontWeight: 'normal'
     },
-    profile: {
-        width: 60,
-        height: 60,
-        borderRadius: 30,
-        marginLeft: 18
+    headerStyle: {
+        backgroundColor: '#121D23'
     }
-})
+}

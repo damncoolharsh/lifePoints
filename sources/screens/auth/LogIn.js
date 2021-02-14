@@ -4,7 +4,7 @@ import {
     StyleSheet,
     Text,
     Image,
-    TextInput,
+    ScrollView,
     TouchableOpacity
 } from 'react-native'
 import {FormField, Spacing, StyledButton} from '../../components/index'
@@ -28,7 +28,7 @@ export default function LogIn({navigation}){
     }
 
     return (
-        <View style={styles.container}>
+        <ScrollView style={styles.container}>
             <View style={styles.header}>
                 <Image 
                 source={require('../../assets/logo.png')}
@@ -66,15 +66,12 @@ export default function LogIn({navigation}){
                     style={styles.forgetPassword}>Forget Password?</Text>
             </View>
             <View style={styles.footer}>
-                <Text style={styles.text}>
-                    Don't have an account? 
-                    <Text
-                        style={styles.text} 
-                        onPress={createNewAccount}> Create One</Text>
+                <Text style={styles.text} onPress={createNewAccount}>
+                    Don't have an account? Create One
                 </Text>
                 <StyledButton onPress={loginUser}>Log In</StyledButton>
             </View>
-        </View>
+        </ScrollView>
     )
 }
 

@@ -122,12 +122,9 @@ export default function Verification({navigation, route}){
 
             <StyledButton onPress={loginWindow}>VERIFY</StyledButton>
 
-            <View style={{alignItems: 'center', marginBottom: '20%'}}>
-            <Text style={{color: 'white'}}>
-                    Have an account? 
-                    <Text
-                        style={{color: 'white'}} 
-                        onPress={loginWindow}> Login</Text>
+            <View style={{alignItems: 'center', marginBottom: '20%'}} >
+                <Text style={{color: 'white'}} onPress={loginWindow}>
+                    Have an account?  Login
                 </Text>
             </View>
         </View>
@@ -174,7 +171,7 @@ const styles = StyleSheet.create({
     },
     pin: {
         borderBottomWidth: 2,
-        borderBottomColor: '#181835',
+        borderBottomColor: '#2D2D76',
         fontSize: 26,
         alignItems: 'center',
         textAlign: 'center',

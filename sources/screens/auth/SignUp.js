@@ -118,12 +118,9 @@ export default function SignUp({navigation}){
 
             <StyledButton onPress={createNewAccount}>Create New Account</StyledButton>
             
-            <View style={styles.footer}>
+            <View style={styles.footer} onPress={loginWindow}>
                 <Text style={{color: 'white'}}>
-                    Have an account? 
-                    <Text
-                        style={{color: 'white'}} 
-                        onPress={loginWindow}> Login</Text>
+                    Have an account?  Login
                 </Text>
             </View>
         </ScrollView>

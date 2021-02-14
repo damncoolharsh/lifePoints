@@ -20,7 +20,6 @@ export default function ForgetPassword({navigation, route}){
 
     const loginWindow = ()=>{
         navigation.dispatch(StackActions.pop(2))
-        StackActions.pop
     }
     return (
         <ScrollView style={styles.container}>
@@ -55,11 +54,8 @@ export default function ForgetPassword({navigation, route}){
             }}>SEND</StyledButton>
 
             <View style={{alignItems: 'center', marginBottom: '20%'}}>
-            <Text style={{color: 'white'}}>
-                    Have an account? 
-                    <Text
-                        style={{color: 'white'}} 
-                        onPress={loginWindow}> Login</Text>
+                <Text style={{color: 'white'}} onPress={loginWindow}>
+                    Have an account? Login
                 </Text>
             </View>
         </ScrollView>
